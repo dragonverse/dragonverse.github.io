@@ -1,116 +1,135 @@
-<html>
-    <head>
-      <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-        body, html {
-          height: 100%;
-          margin: 0;
-        }
-        
-        .bg {
-          /* The image used */
-          background-image: url("nightsky1.jpg");
-        
-          /* Full height */
-          height: 100%; 
-        
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        </style>
-        </head>
-</html>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+  <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg {
+      /* The image used */
+      background-image: url("nightsky1.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    h1 {
+      color: purple;
+    }
+
+    .myDiv {
+      border: 5px outset lightblue;
+      background-color: purple;
+      text-align: center;
+    }
+  </style>
   <title>DragonVerse</title>
+
+  <script>
+    var i = 0;
+    var txt = 'Join our Discord Server today! And Subscribe and click that bell!';
+    var speed = 60;
+
+    function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  </script>
+
+  <script>
+    var i2 = 0;
+    var txt2 = 'If you want to Join our Discord Server you will have to Read rules and Terms and Guildlines.';
+
+    function typeWriter2() {
+      if (i2 < txt2.length) {
+        document.getElementById("demo2").innerHTML += txt2.charAt(i2);
+        i2++;
+        setTimeout(typeWriter2, speed);
+      }
+    }
+  </script>
+
+  <script>
+    var i3 = 0;
+    var txt3 = 'This Website made by The official creator "NightDragonPlayz" created this website for fun, this website was ALSO inspired by Carrd.co so visit that website for more, and please Like all my Videos and also SUBSCRIBE to Me and my Friends. I even made Trailers of my own, so I think that is all, goodbye!';
+
+    function typeWriter3() {
+      if (i3 < txt3.length) {
+        document.getElementById("demo3").innerHTML += txt3.charAt(i3);
+        i3++;
+        setTimeout(typeWriter3, speed);
+      }
+    }
+  </script>
 </head>
+
 <body class="bg">
-    <head>
-        <style>
-         h1{color:purple;}
-        
-        </style>
-        </head>
-        <body>
-            <div class="topnav">
-                <a class="active" href="index.html">Home</a>
-                <a href="messagecontact.html">Message</a>
-                <a href="link.html">DV Titans</a>
-                <input type="text" placeholder="Search DragonVerse">
-                <button type="button" onclick="alert('We had an Error Searching this!')">Search</button>
-</div>
-<style>
-.myDiv {
-  border: 5px outset lightblue;
-  background-color: purple;    
-  text-align: center;
-}
-</style>
-</head>
-<body>
+  <div style="background-color: lightgray; margin: 10px;">
+    <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+    <div class="topnav" style="display:inline-block;">
+      <a class="active" href="index.html">Home</a>
+      <a href="messagecontact.html">Message</a>
+      <a href="link.html">DV Titans</a>
+    </div>
+  </div>
 
-<h1>NightDragonPlayz</h1>
-
-<div class="myDiv">
-  <h2 style="color:white;">DragonVerse</h2>
-  <p style="color:white;">An Official website by NightDragonPlayz.</p>
-</div>
-
-</div>
-
-</body>
-</html>
-<hr>
-<a href="https://youtube.com/c/nightdragonplayz" target="_blank">https://youtube.com/user/NDPTheDragon</a> 
-<br>
-</body>
-</html>
-<a href="https://discord.link/dragonverse" target="_blank">https://discord.gg/dragonverse</a> 
-<hr>
+  <br>
+  <p style="color:white;">Press Enter to Search.</p>
+  <form class="example" action="/action_page.php">
+    <input type="text" placeholder="Search DragonVerse" name="search">
+  </form>
 
 
-<p id="demo" style="color:white;"></p>
-<button onclick="typeWriter()">Type Message</button>
+  <div class="myDiv">
+    <h2 style="color:white;">DragonVerse</h2>
+    <p style="color:white;">An Official website by NightDragonPlayz.</p>
+  </div>
 
-<p id="demo"></p>
+  </div>
 
-<script>
-var i = 0;
-var txt = 'Join our Discord Server today! And Subscribe and click that bell!';
-var speed = 60;
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-</script>
+  <hr>
+  <a href="https://youtube.com/c/nightdragonplayz" target="_blank">https://youtube.com/user/NDPTheDragon</a>
+  <br>
+  <a href="https://discord.link/dragonverse" target="_blank">https://discord.gg/dragonverse</a>
+  <hr>
 
-<p id="demo" style="color:white;"></p>
-<button onclick="typeWriter2()">Type Message (2)</button>
 
-<p id="demo2" style="color:white;"></p>
+  <p id="demo" style="color:white;"></p>
+  <button onclick="typeWriter()">Type Message</button>
 
-<script>
-var i2 = 0;
-var txt2 = 'If you want to Join our Discord Server you will have to Read rules and Terms and Guildlines.';
+  <p id="demo"></p>
 
-function typeWriter2() {
-  if (i2 < txt2.length) {
-    document.getElementById("demo2").innerHTML += txt2.charAt(i2);
-    i2++;
-    setTimeout(typeWriter2, speed);
-  }
-}
-</script>
-<hr>
-<h3 style="color:white;">About Us</h3>
-<p style="color:white;">This Website made by The official creator "NightDragonPlayz" created this website for fun, this website was ALSO inspired by Carrd.co so visit that website for more, and please Like all my Videos and also SUBSCRIBE to Me and my Friends. I even made Trailers of my own, so I think that is all, goodbye!</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<p style="color:white;">NightDragonPlayz. All Rights Reserved</p>
+
+  <p id="demo" style="color:white;"></p>
+  <button onclick="typeWriter2()">Type Message (2)</button>
+
+  <p id="demo2" style="color:white;"></p>
+
+  <hr>
+  <h3 style="color:white;">About Us</h3>
+  <p style="color:white;"></p>
+  <p id="demo" style="color:white;"></p>
+  <button onclick="typeWriter3()">About Us</button>
+
+  <p id="demo3" style="color:white;"></p>
+
+  <input type="checkbox" unchecked="unchecked" name="remember">
+  <span style="color:white">Finished Reading About Us?</span>
+  </label>
+  </div>
+
