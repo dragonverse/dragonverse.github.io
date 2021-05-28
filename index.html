@@ -22,19 +22,28 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      background-attachment: fixed;
+
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     h1 {
       color: purple;
     }
 
-    .myDiv {
-      border: 5px outset lightblue;
+    .titleText {
+      padding: 10px;
+      background-color: purple;
+      text-align: center;
+    }
+
+    .bottomBox {
+      padding: 20px;
       background-color: purple;
       text-align: center;
     }
   </style>
-  <title>DragonVerse</title>
+  <title>DragonVerse Home</title>
 
   <script>
     var i = 0;
@@ -79,7 +88,9 @@
 
 <body class="bg">
   <div style="background-color: lightgray; margin: 11px; position: relative;">
+      <a href="www.dragonver.se/">
     <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+    <a>
     <div class="topnav" style="display:inline-block;">
       <a class="active" href="index.html">Home</a>
       <a href="messagecontact.html">Message</a>
@@ -89,45 +100,66 @@
       </form>
     </div>
   </div>
-
   <br>
 
 
-  <div class="myDiv">
-    <h2 style="color:white;">DragonVerse</h2>
-    <p style="color:white;">An Official website by NightDragonPlayz.</p>
+  <div class="titleText">
+    <h2 style="color:white; font-size: 20px;">DragonVerse Home</h2>
+    <p style="color:white; font-size: 20px;">An Official website by NightDragonPlayz.</p>
   </div>
 
+  <br>
   </div>
 
 
-  <hr>
+  
   <a href="https://youtube.com/c/nightdragonplayz" target="_blank">https://youtube.com/user/NDPTheDragon</a>
   <br>
   <a href="https://discord.link/dragonverse" target="_blank">https://discord.gg/dragonverse</a>
+  <br>
+  <br>
   <hr>
 
 
-  <p id="demo" style="color:white;"></p>
+  <p id="demo" style="color:white; font-size: 20px;"></p>
   <button onclick="typeWriter()">Type Message</button>
 
   <p id="demo"></p>
 
 
-  <p id="demo" style="color:white;"></p>
+  <p id="demo" style="color:white; font-size: 20px;"></p>
   <button onclick="typeWriter2()">Type Message (2)</button>
 
-  <p id="demo2" style="color:white;"></p>
+  <p id="demo2" style="color:white; font-size: 20px;"></p>
 
   <hr>
-  <h3 style="color:white;">About Us</h3>
-  <p style="color:white;"></p>
-  <p id="demo" style="color:white;"></p>
+  <h3 style="color:white; font-size: 20px;">About Us</h3>
+  <p style="color:white; font-size: 20px;"></p>
+  <p id="demo" style="color:white; font-size: 20px;"></p>
   <button onclick="typeWriter3()">About Us</button>
 
-  <p id="demo3" style="color:white;"></p>
+  <p id="demo3" style="color:white; font-size: 20px;"></p>
 
   <input type="checkbox" unchecked="unchecked" name="remember">
-  <span style="color:white">Finished Reading About Us?</span>
+  <span style="font-family:sans-serif; color:white; font-size: 15px;">Finished Reading About Us?</span>
   </label>
   </div>
+
+  <div style="height: 600px;">
+
+  </div>
+
+  <div class="bottomBox">
+    <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
+    <p style="color:white; font-size: 20px;">Made By NightDragonPlayz. All Rights Reserved</p>
+    <p style="color:white; font-size: 20px;">Site made from Visual Studio Code.<p>
+    <p style="color:white; font-size: 20px;">Please Support me on YouTube.<p>
+      <form action="youtube.com/nightdragonplayz">
+        <select name="cars" id="cars">
+          <option value="ndp">NightDragonPlayz</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Visit">
+      </form>
+  </div>
+</body>
