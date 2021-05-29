@@ -95,6 +95,7 @@
       <a class="active" href="index.html">Home</a>
       <a href="messagecontact.html">Message</a>
       <a href="link.html">DV Titans</a>
+      <a href="game.html">Game (beta)</a>
       <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
         <input type="text" placeholder="Press Enter to Search..." name="search">
       </form>
@@ -154,12 +155,26 @@
     <p style="color:white; font-size: 20px;">Made By NightDragonPlayz. All Rights Reserved</p>
     <p style="color:white; font-size: 20px;">Site made from Visual Studio Code.<p>
     <p style="color:white; font-size: 20px;">Please Support me on YouTube.<p>
-      <form action="youtube.com/nightdragonplayz">
-        <select name="cars" id="cars">
-          <option value="ndp">NightDragonPlayz</option>
+      <form action="signin.html">
+        <select name="channel" id="channel">
+          <option value="">NightDragonPlayz</option>
         </select>
         <br><br>
         <input type="submit" value="Visit">
       </form>
   </div>
+  <div id="myDIV" class="header">
+    <h2>My To Do List</h2>
+    <input type="text" id="myInput" placeholder="Title...">
+    <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
+  
+  <ul id="myUL">
+    <li>Hit the gym</li>
+    <li class="checked">Pay bills</li>
+    <li>Meet George</li>
+    <li>Buy eggs</li>
+    <li>Read a book</li>
+    <li>Organize office</li>
+  </ul>
 </body>
