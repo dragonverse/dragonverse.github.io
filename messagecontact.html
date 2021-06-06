@@ -35,6 +35,26 @@
       background-color: purple;
       text-align: center;
     }
+
+    .active {
+      background-color: purple;
+      color:#f5e0ff;
+    }
+
+    .menu-item {
+      display: inline-block;
+      /* Set height */
+      height: 35px;
+      /* Remove underline */
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px
+    }
+
+    .webIMG  {
+      text-decoration: none;
+    }
   </style>
   <title>DragonVerse MSG</title>
 
@@ -42,10 +62,10 @@
     <div style="background-color: lightgray; margin: 11px; position: relative;">
       <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
       <div class="topnav" style="display:inline-block;">
-        <a class="active" href="index.html">Home</a>
-        <a href="messagecontact.html">Message</a>
-        <a href="link.html">DV Titans</a>
-        <a href="game.html">Game</a>
+        <a class="menu-item" href="index.html">Home</a>
+        <a class="menu-item active" href="messagecontact.html">Message</a>
+        <a class="menu-item" href="link.html">DV Titans</a>
+        <a class="menu-item" href="game.html">Game (beta)</a>
         <form class="example" action="message" style="display: block;position: absolute;right: 15px;top: 15px;">
           <input type="text" placeholder="Press Enter to Search..." name="search">
       </div>

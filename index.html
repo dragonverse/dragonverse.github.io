@@ -40,7 +40,39 @@
     .bottomBox {
       padding: 20px;
       background-color: purple;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 24px;
       text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color: #04AA6D;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+    }
+
+    .active {
+      background-color: purple;
+      color:#f5e0ff;
+    }
+
+    .menu-item {
+      display: inline-block;
+      /* Set height */
+      height: 35px;
+      /* Remove underline */
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px
+    }
+
+    .webIMG  {
+      text-decoration: none;
     }
   </style>
   <title>DragonVerse Home</title>
@@ -88,14 +120,14 @@
 
 <body class="bg">
   <div style="background-color: lightgray; margin: 11px; position: relative;">
-      <a href="www.dragonver.se/">
-    <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
-    <a>
+    <a class="webIMG" href="www.dragonver.se/">
+      <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+    </a>
     <div class="topnav" style="display:inline-block;">
-      <a class="active" href="index.html">Home</a>
-      <a href="messagecontact.html">Message</a>
-      <a href="link.html">DV Titans</a>
-      <a href="game.html">Game (beta)</a>
+      <a class="menu-item active" href="index.html">Home</a>
+      <a class="menu-item" href="messagecontact.html">Message</a>
+      <a class="menu-item" href="link.html">DV Titans</a>
+      <a class="menu-item" href="game.html">Game (beta)</a>
       <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
         <input type="text" placeholder="Press Enter to Search..." name="search">
       </form>
@@ -113,10 +145,12 @@
   </div>
 
 
-  
-  <a href="https://youtube.com/c/nightdragonplayz" target="_blank">https://youtube.com/user/NDPTheDragon</a>
+
+  <a href="https://youtube.com/c/nightdragonplayz" class="button">YouTube Channel</a>
   <br>
-  <a href="https://discord.link/dragonverse" target="_blank">https://discord.gg/dragonverse</a>
+  <br>
+  <br>
+  <a href="https://discord.link/dragonverse" class="button">Discord Server</a>
   <br>
   <br>
   <hr>
@@ -144,37 +178,31 @@
   <input type="checkbox" unchecked="unchecked" name="remember">
   <span style="font-family:sans-serif; color:white; font-size: 15px;">Finished Reading About Us?</span>
   </label>
+
+  
+  <p style="color:white">Share this link by pressing the button to copy the text.</p>
+  <input type="text" value="https://www.dragonver.se" id="myInput">
+  <button onclick="myFunction()">Copy Link</button>
+
   </div>
 
-  <div style="height: 600px;">
+  <div style="height: 700px;">
 
   </div>
 
   <div class="bottomBox">
     <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
-    <p style="color:white; font-size: 20px;">Made By NightDragonPlayz. All Rights Reserved</p>
-    <p style="color:white; font-size: 20px;">Site made from Visual Studio Code.<p>
-    <p style="color:white; font-size: 20px;">Please Support me on YouTube.<p>
-      <form action="signin.html">
-        <select name="channel" id="channel">
-          <option value="">NightDragonPlayz</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Visit">
-      </form>
+    <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All Rights Reserved</p>
+    <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
+    <p>
+    <p style="color:white; font-size: 20px;">Please Support me on YouTube.
+    <p>
+    <form action="signin.html">
+      <select name="channel" id="channel">
+        <option value="">NightDragonPlayz</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Visit">
+    </form>
   </div>
-  <div id="myDIV" class="header">
-    <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="Title...">
-    <span onclick="newElement()" class="addBtn">Add</span>
-  </div>
-  
-  <ul id="myUL">
-    <li>Hit the gym</li>
-    <li class="checked">Pay bills</li>
-    <li>Meet George</li>
-    <li>Buy eggs</li>
-    <li>Read a book</li>
-    <li>Organize office</li>
-  </ul>
 </body>
