@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg {
+      /* The image used */
+      background-image: url("nightsky1.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      color: purple;
+    }
+
+    .myDiv {
+      border: 5px outset lightblue;
+      background-color: purple;
+      text-align: center;
+    }
+
+    .menu-item {
+      display: inline-block;
+      /* Set height */
+      height: 35px;
+      /* Remove underline */
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px
+    }
+
+    .webIMG {
+      text-decoration: none;
+    }
+
+    .button {
+      padding: 2px 10px;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: black;
+      background-color: rgb(214, 227, 255);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 9px #999;
+      text-decoration: none;
+      margin: 4px 2px;
+      opacity: 1;
+      /* transition: 5.1s; */
+    }
+    .dropbtn {
+      display: block;
+      position: relative;
+      top: 10px;
+      height: 30px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      background-color: #04AA6D;
+      color: white;
+      font-size: 16px;
+      border: none;
+    }
+
+    .dropdown {
+      display: block;
+      height: 50px;
+      background-color: #04AA6D;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .menu {
+      background-color: lightgray;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .menu td .menu-item-container {
+      margin-left: 5px;
+      margin-right: 5px;
+      /* padding-left: 10px;
+      padding-right: 10px; */
+      height: 50px;
+    }
+
+    .menu td.image-container {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .menu td .menu-item-container a {
+      display: block;
+      position: relative;
+      top: 10px;
+      height: 30px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .menu td .menu-item-container.active a {
+      color: #f5e0ff;
+      background-color: purple;
+    }
+
+    .menu td .menu-item {
+      text-decoration: none;
+    }
+
+    .search-cell {
+      width: 100%;
+    }
+
+    .search-container {
+      height: 50px;
+      position: relative;
+    }
+    .bottomBox {
+      padding: 20px;
+      background-color: purple;
+    }
+    .button:hover {
+      background-color:grey
+    }
+    .menu-item:hover {
+      background-color: #8f8f8f;
+    }
+    .menu-item:after {
+      background-color: black;
+    }
+  </style>
+  <title>DragonVerse MSG  - An official website created by NightDragonPlayz</title>
+
+  <body class="bg" style="margin-top: 10px;">
+    <table class="menu" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="image-container">
+          <a class="webIMG" href="www.dragonver.se/">
+            <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+          </a>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="index.html">Home</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container active">
+            <a class="menu-item" href="messagecontact.htm">Message</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
+          </div>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button class="dropbtn">Media</button>
+            <div class="dropdown-content">
+              <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
+              <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
+              <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
+              <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
+            </div>
+          </div>
+        </td>
+        <td class="search-cell">
+          <div class="search-container">
+            <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
+              <input type="text" placeholder="Press Enter to Search..." name="search">
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
+    <a class="webIMG" href="www.dragonver.se/">
+      <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+      <div class="topnav" style="display:inline-block;">
+        <a class="menu-item" href="index.htm">Home</a>
+        <a class="menu-item active" href="messagecontact.htm">Message</a>
+        <a class="menu-item" href="link.htm">DV Titans</a>
+        <a class="menu-item" href="game.htm">Game (beta)</a>
+        <form class="example" action="message" style="display: block;position: absolute;right: 15px;top: 15px;">
+          <input type="text" placeholder="Press Enter to Search..." name="search">
+      </div>
+  </div>-->
+
+    <h3 style="color:white;">Message Owner</h3>
+    <div><input type="text" placeholder="Message">
+      <button class="button" onclick="alert('Message sent')"> > </button>
+    </div>
+
+  </div>
+
+  <div style="height: 700px;">
+
+  </div>
+
+    <div class="bottomBox">
+      <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
+      <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
+        Rights Reserved</p>
+      <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
+      <p>
+      <p style="color:white; font-size: 20px;">Please Support me on YouTube.
+      <p>
+      <p style="color:white;">URL: https://www.dragonver.se/messagecontact.htm</p>
+      <form class="button" action="signin.htm">
+        <select name="channel" id="channel">
+          <option value="">NightDragonPlayz</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Visit">
+      </form>
+    </div>

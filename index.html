@@ -2,6 +2,44 @@
 <html>
 
 <head>
+  <script>
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function checkCookie() {
+      var user = getCookie("username");
+      if (user != "") {
+        alert("Welcome back " + user);
+      } else {
+        user = prompt("Please enter your site name", "");
+        if (user != "" && user != null) {
+          setCookie("username", user, 30);
+        }
+      }
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="description" content=" A fun DragonVerse website for everyone!">
   <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -29,6 +67,7 @@
 
     h1 {
       color: purple;
+      width: 20px;
     }
 
     .titleText {
@@ -43,39 +82,153 @@
     }
 
     .button {
-      padding: 10px 20px;
+      padding: 2px 10px;
       font-size: 24px;
       text-align: center;
       cursor: pointer;
       outline: none;
-      color: #fff;
-      background-color: #04AA6D;
+      color: black;
+      background-color: rgb(214, 227, 255);
       border: none;
-      border-radius: 15px;
+      border-radius: 10px;
       box-shadow: 0 9px #999;
+      text-decoration: none;
+      margin: 4px 2px;
     }
 
+    .button:hover {
+      background-color: grey
+    }
+
+    /*
     .active {
       background-color: purple;
-      color:#f5e0ff;
+      color: #f5e0ff;
     }
+    */
 
+    /*
     .menu-item {
       display: inline-block;
-      /* Set height */
       height: 35px;
-      /* Remove underline */
       text-decoration: none;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 5px
     }
+    */
 
-    .webIMG  {
+    .webIMG {
       text-decoration: none;
     }
+
+    .dropbtn {
+      display: block;
+      position: relative;
+      top: 10px;
+      height: 30px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      background-color: #04AA6D;
+      color: white;
+      font-size: 16px;
+      border: none;
+    }
+
+    .dropdown {
+      display: block;
+      height: 50px;
+      background-color: #04AA6D;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .menu {
+      background-color: lightgray;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .menu td .menu-item-container {
+      margin-left: 5px;
+      margin-right: 5px;
+      /* padding-left: 10px;
+      padding-right: 10px; */
+      height: 50px;
+    }
+
+    .menu td.image-container {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .menu td .menu-item-container a {
+      display: block;
+      position: relative;
+      top: 10px;
+      height: 30px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .menu td .menu-item-container.active a {
+      color: #f5e0ff;
+      background-color: purple;
+    }
+
+    .menu td .menu-item {
+      text-decoration: none;
+    }
+
+    .search-cell {
+      width: 100%;
+    }
+
+    .search-container {
+      height: 50px;
+      position: relative;
+    }
+    .menu-item:hover {
+      background-color: #8f8f8f;
+    }
   </style>
-  <title>DragonVerse Home</title>
+  <title>DragonVerse Home - An official website created by NightDragonPlayz</title>
 
   <script>
     var i = 0;
@@ -118,23 +271,78 @@
   </script>
 </head>
 
-<body class="bg">
-  <div style="background-color: lightgray; margin: 11px; position: relative;">
+<body class="bg" style="margin-top: 10px;">
+  <table class="menu" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="image-container">
+        <a class="webIMG" href="www.dragonver.se/">
+          <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+        </a>
+      </td>
+      <td>
+        <div class="menu-item-container active">
+          <a class="menu-item" href="index.html">Home</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="messagecontact.htm">Message</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
+        </div>
+      </td>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn fa fa-caret-down">Media</button>
+          <div class="dropdown-content">
+            <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
+            <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
+            <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
+            <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
+          </div>
+        </div>
+      </td>
+      <td class="search-cell">
+        <div class="search-container">
+          <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
+            <input type="text" class="fa fa-fw fa-search" placeholder="Press Enter to Search..." name="search">
+          </form>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!-- <div style="background-color: lightgray; margin: 11px; position: relative; height: 50px;">
     <a class="webIMG" href="www.dragonver.se/">
       <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
     </a>
     <div class="topnav" style="display:inline-block;">
-      <a class="menu-item active" href="index.html">Home</a>
-      <a class="menu-item" href="messagecontact.html">Message</a>
-      <a class="menu-item" href="link.html">DV Titans</a>
-      <a class="menu-item" href="game.html">Game (beta)</a>
+      <a class="menu-item active" href="index.htm">Home</a>
+      <a class="menu-item" href="messagecontact.htm">Message</a>
+      <a class="menu-item" href="link.htm">DV Titans</a>
+      <a class="menu-item" href="game.htm">Game (beta)</a>
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="youtube.com/c/nightdragonplayz">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
       <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
         <input type="text" placeholder="Press Enter to Search..." name="search">
       </form>
     </div>
-  </div>
-  <br>
+  </div> -->
 
+  <br>
 
   <div class="titleText">
     <h2 style="color:white; font-size: 20px;">DragonVerse Home</h2>
@@ -157,13 +365,13 @@
 
 
   <p id="demo" style="color:white; font-size: 20px;"></p>
-  <button onclick="typeWriter()">Type Message</button>
+  <button class="button" onclick="typeWriter()">Type Message</button>
 
   <p id="demo"></p>
 
 
   <p id="demo" style="color:white; font-size: 20px;"></p>
-  <button onclick="typeWriter2()">Type Message (2)</button>
+  <button class="button" onclick="typeWriter2()">Type Message (2)</button>
 
   <p id="demo2" style="color:white; font-size: 20px;"></p>
 
@@ -171,7 +379,7 @@
   <h3 style="color:white; font-size: 20px;">About Us</h3>
   <p style="color:white; font-size: 20px;"></p>
   <p id="demo" style="color:white; font-size: 20px;"></p>
-  <button onclick="typeWriter3()">About Us</button>
+  <button class="button" onclick="typeWriter3()">About Us</button>
 
   <p id="demo3" style="color:white; font-size: 20px;"></p>
 
@@ -186,13 +394,15 @@
   </div>
 
   <div class="bottomBox">
-    <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
-    <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All Rights Reserved</p>
+    <h2 style="color:white; font-size: 20px;">DragonVerse&gacute;</h2>
+    <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
+      Rights Reserved</p>
     <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
     <p>
     <p style="color:white; font-size: 20px;">Please Support me on YouTube.
     <p>
-    <form action="signin.html">
+    <p style="color:white;">URL: https://www.dragonver.se/index.html</p>
+    <form class="button" action="signin.htm">
       <select name="channel" id="channel">
         <option value="">NightDragonPlayz</option>
       </select>
