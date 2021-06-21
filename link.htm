@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="description" content=" A fun DragonVerse website for everyone!">
   <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -53,9 +55,10 @@
       padding-top: 5px
     }
 
-    .webIMG  {
+    .webIMG {
       text-decoration: none;
     }
+
     .dropbtn {
       display: block;
       position: relative;
@@ -158,10 +161,12 @@
       height: 50px;
       position: relative;
     }
+
     .bottomBox {
       padding: 20px;
       background-color: purple;
     }
+
     .button {
       padding: 2px 10px;
       font-size: 24px;
@@ -176,67 +181,144 @@
       text-decoration: none;
       margin: 4px 2px;
       opacity: 1;
-     /* transition: 5.1s; */
+      /* transition: 5.1s; */
     }
+
     .button:hover {
-      background-color:grey
+      background-color: grey
     }
+
     .menu-item:hover {
       background-color: #8f8f8f;
     }
 
-  </style>
-  <title>DragonVerse Titans  - An official website created by NightDragonPlayz</title>
+    .button:active {
+      background-color: gray;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
 
-  <body class="bg" style="margin-top: 10px;">
-    <table class="menu" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="image-container">
-          <a class="webIMG" href="www.dragonver.se/">
-            <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
-          </a>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="index.html">Home</a>
+    .menu-item:active {
+      background-color: #4a4a4a;
+    }
+
+    #myInput {
+      background-image: url('si.png');
+      background-size: 20px 20px;
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myUL {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      border: 1px solid #ddd;
+      margin-top: -1px;
+      /* Prevent double borders */
+      background-color: #f6f6f6;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #eee;
+    }
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: purple;
+      background: plum;
+    }
+
+    ::selection {
+      color: purple;
+      background: plum;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: darkmagenta;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+  </style>
+  <title>DragonVerse Titans - An official website created by NightDragonPlayz</title>
+
+<body class="bg" style="margin-top: 10px;">
+  <table class="menu" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="image-container">
+        <a class="webIMG" href="www.dragonver.se/">
+          <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+        </a>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="index.html">Home</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="messagecontact.htm">Message</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container active">
+          <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
+        </div>
+      </td>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn">Media &#9662;</button>
+          <div class="dropdown-content">
+            <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
+            <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
+            <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
+            <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
           </div>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="messagecontact.htm">Message</a>
-          </div>
-        </td>
-        <td>
-          <div class="menu-item-container active">
-            <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
-          </div>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
-          </div>
-        </td>
-        <td>
-          <div class="dropdown">
-            <button class="dropbtn">Media</button>
-            <div class="dropdown-content">
-              <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
-              <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
-              <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
-              <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
-            </div>
-          </div>
-        </td>
-        <td class="search-cell">
-          <div class="search-container">
-            <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
-              <input type="text" placeholder="Press Enter to Search..." name="search">
-            </form>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
+        </div>
+      </td>
+      <td class="search-cell">
+        <div class="search-container">
+          <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
+            <input type="text" placeholder="Press Enter to Search..." name="search">
+          </form>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
       <a class="webIMG" href="www.dragonver.se/">
       <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
       <div class="topnav" style="display:inline-block;">
@@ -248,43 +330,84 @@
             <input type="text" placeholder="Press Enter to Search..." name="search">
       </div>
     </div>-->
+  <br>
+  <button class="button" type="button" onclick="document.getElementById('dat').innerHTML = Date()">
+    Display Pacific Time &#9662;</button>
 
-                <h2 style="color:white;">DragonVerse Titans</h2>
-                <p style="color:white;">Deqailord - 627 ft.</p>
-                <br>
-                <p style="color:white;">Juhuki Dragōn - 862 ft.</p>
-                <br>
-                <p style="color:white;">Methuzile - 561 ft.</p>
-                <br>
-                <p style="color:white;">Mike - 412 ft.</p>
-                <br>
-                <p style="color:white;">Alf - 913 ft. (Seperate Universe)</p>
-                <br>
-                <p style="color:white;">MUNA - 408 ft. (Massive Unidentified Nuclear Animal)</p>
-                <br>
-                <p style="color:white;">Goliraju - 854 ft.</p>
+  <p style="color:white" id="dat"></p>
 
-              </div>
+  <h2 style="color:white">All DragonVerse Confirmed Titans</h2>
 
-              <div style="height: 700px;">
-            
-              </div>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for titans..."
+    title="Type in a titan name">
 
-                <div class="bottomBox">
-                  <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
-                  <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
-                    Rights Reserved</p>
-                  <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
-                  <p>
-                  <p style="color:white; font-size: 20px;">Please Support me on YouTube.
-                  <p>
-                  <p style="color:white;">URL: https://www.dragonver.se/link.htm</p>
-                  <form class="button" action="signin.htm">
-                    <select name="channel" id="channel">
-                      <option value="">NightDragonPlayz</option>
-                    </select>
-                    <br><br>
-                    <input type="submit" value="Visit">
-                  </form>
-                </div>
-            
+  <ul id="myUL">
+    <li><a href="#">Deqailord - 627 ft.</a></li>
+    <li><a href="#">Juhuki Dragōn - 862 ft.</a></li>
+    <li><a href="#">Mecha Deqailord - 629 ft.</a></li>
+
+    <li><a href="#">Methuzile - 561 ft.</a></li>
+    <li><a href="#">Mike - 412 ft.</a></li>
+
+    <li><a href="#">Alf - 913 ft. (Seperate Universe)</a></li>
+    <li><a href="#">MUNA - 408 ft. (Massive Unidentified Nuclear Animal)</a></li>
+    <li><a href="#">Goliraju - 854 ft.</a></li>
+  </ul>
+
+  <script>
+    function myFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <!--<h2 style="color:white;">DragonVerse Titans</h2>
+  <p style="color:white;">Deqailord - 627 ft.</p>
+  <br>
+  <p style="color:white;">Juhuki Dragōn - 862 ft.</p>
+  <br>
+  <p style="color:white;">Methuzile - 561 ft.</p>
+  <br>
+  <p style="color:white;">Mike - 412 ft.</p>
+  <br>
+  <p style="color:white;">Alf - 913 ft. (Seperate Universe)</p>
+  <br>
+  <p style="color:white;">MUNA - 408 ft. (Massive Unidentified Nuclear Animal)</p>
+  <br>
+  <p style="color:white;">Goliraju - 854 ft.</p>-->
+
+  </div>
+
+  <div style="height: 700px;">
+
+  </div>
+
+  <div class="bottomBox">
+    <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
+    <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
+      Rights Reserved</p>
+    <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
+    <p>
+    <p style="color:white; font-size: 20px;">Please Support me on YouTube.
+    <p>
+    <p style="color:white;">URL: https://www.dragonver.se/link.htm</p>
+    <form class="button" action="signin.htm">
+      <select name="channel" id="channel">
+        <option value="">NightDragonPlayz</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Visit">
+    </form>
+  </div>

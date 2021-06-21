@@ -27,15 +27,36 @@
     }
 
     function checkCookie() {
-      var user = getCookie("username");
-      if (user != "") {
-        alert("Welcome back " + user);
+      var user = localStorage.getItem('username');
+      if (user !== null) {
+        // alert("Welcome back " + user);
+        document.getElementById("welcome").innerHTML = "Welcome back, " + user
       } else {
         user = prompt("Please enter your site name", "");
         if (user != "" && user != null) {
-          setCookie("username", user, 30);
+          localStorage.setItem('username', user);
+          document.getElementById("welcome").innerHTML = "Logged in as, " + user
         }
       }
+      // var user = getCookie("username");
+      // if (user != "") {
+      //   alert("Welcome back " + user);
+      // } else {
+      //   user = prompt("Please enter your site name", "");
+      //   if (user != "" && user != null) {
+      //     setCookie("username", user, 30);
+      //   }
+      // }
+    }
+
+    function logout() {
+      localStorage.removeItem('username');
+      document.getElementById("welcome").innerHTML = "Logged out.";
+      document.getElementById('logoutbtn').style.display = "none";
+
+    }
+    function NDPFunction() {
+      document.getElementById('NightDfunction').style.color = "white";
     }
   </script>
   <meta charset="UTF-8">
@@ -63,6 +84,7 @@
       background-attachment: fixed;
 
       font-family: Arial, Helvetica, sans-serif;
+      background-color: darkgray;
     }
 
     h1 {
@@ -71,7 +93,7 @@
     }
 
     .titleText {
-      padding: 10px;
+      padding: 12px;
       background-color: purple;
       text-align: center;
     }
@@ -98,6 +120,12 @@
 
     .button:hover {
       background-color: grey
+    }
+
+    .button:active {
+      background-color: gray;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
     }
 
     /*
@@ -224,8 +252,63 @@
       height: 50px;
       position: relative;
     }
+
     .menu-item:hover {
       background-color: #8f8f8f;
+    }
+
+    .menu-item:active {
+      background-color: #4a4a4a;
+    }
+
+    .glow {
+      font-size: 80px;
+      color: #fff;
+      text-align: center;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+      }
+
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      }
+    }
+
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: purple;
+      background: plum;
+    }
+
+    ::selection {
+      color: purple;
+      background: plum;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: darkmagenta;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
     }
   </style>
   <title>DragonVerse Home - An official website created by NightDragonPlayz</title>
@@ -259,7 +342,7 @@
 
   <script>
     var i3 = 0;
-    var txt3 = 'This Website made by The official creator "NightDragonPlayz" created this website for fun, this website was ALSO inspired by Carrd.co so visit that website for more, and please Like all my Videos and also SUBSCRIBE to Me and my Friends. I even made Trailers of my own, so I think that is all, goodbye!';
+    var txt3 = 'This Website made by The official creator NightDragonPlayz created this website for fun, this website was also inspired by Carrd.co so visit that website for more, and please Like all my videos and also subscribe to me and my friends. I even made Trailers of my own, so I think that is all, goodbye!';
 
     function typeWriter3() {
       if (i3 < txt3.length) {
@@ -271,7 +354,7 @@
   </script>
 </head>
 
-<body class="bg" style="margin-top: 10px;">
+<body class="bg" style="margin-top: 10px;" onload="checkCookie()">
   <table class="menu" cellspacing="0" cellpadding="0">
     <tr>
       <td class="image-container">
@@ -301,7 +384,7 @@
       </td>
       <td>
         <div class="dropdown">
-          <button class="dropbtn fa fa-caret-down">Media</button>
+          <button class="dropbtn fa fa-caret-down">Media &#9662;</button>
           <div class="dropdown-content">
             <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
             <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
@@ -313,7 +396,7 @@
       <td class="search-cell">
         <div class="search-container">
           <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
-            <input type="text" class="fa fa-fw fa-search" placeholder="Press Enter to Search..." name="search">
+            <input type="text" class="searchenter" placeholder="Press Enter to Search..." name="search">
           </form>
         </div>
       </td>
@@ -344,24 +427,25 @@
 
   <br>
 
+  <div id="welcome" style="color: white;"></div>
+  <br>
+  <div>
+    <button class="button" id="logoutbtn" onclick="logout()">Logout</button>
+  </div>
+  <br>
+
+  <button class="button" type="button" onclick="document.getElementById('dat').innerHTML = Date()">
+    Display Pacific Time &#9662;</button>
+
+  <p style="color:white" id="dat"></p>
+
   <div class="titleText">
     <h2 style="color:white; font-size: 20px;">DragonVerse Home</h2>
     <p style="color:white; font-size: 20px;">An Official website by NightDragonPlayz.</p>
   </div>
 
-  <br>
+
   </div>
-
-
-
-  <a href="https://youtube.com/c/nightdragonplayz" class="button">YouTube Channel</a>
-  <br>
-  <br>
-  <br>
-  <a href="https://discord.link/dragonverse" class="button">Discord Server</a>
-  <br>
-  <br>
-  <hr>
 
 
   <p id="demo" style="color:white; font-size: 20px;"></p>
@@ -371,7 +455,7 @@
 
 
   <p id="demo" style="color:white; font-size: 20px;"></p>
-  <button class="button" onclick="typeWriter2()">Type Message (2)</button>
+  <button class="button" onclick="typeWriter2()">Type Message 2</button>
 
   <p id="demo2" style="color:white; font-size: 20px;"></p>
 
@@ -394,7 +478,7 @@
   </div>
 
   <div class="bottomBox">
-    <h2 style="color:white; font-size: 20px;">DragonVerse&gacute;</h2>
+    <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
     <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
       Rights Reserved</p>
     <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.

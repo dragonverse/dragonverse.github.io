@@ -2,50 +2,55 @@
 <html>
 
 <head>
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="description" content=" A fun DragonVerse website for everyone!">
+  <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
 
-        .bg {
-            /* The image used */
-            background-image: url("nightsky1.jpg");
+    .bg {
+      /* The image used */
+      background-image: url("nightsky1.jpg");
 
-            /* Full height */
-            height: 100%;
+      /* Full height */
+      height: 100%;
 
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
 
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        canvas {
-            border: 1px solid #d3d3d3;
-            background-color: #590000;
+    canvas {
+      border: 1px solid #d3d3d3;
+      background-color: #590000;
 
-        }
+    }
 
-        .menu-item {
-            display: inline-block;
-            /* Set height */
-            height: 35px;
-            /* Remove underline */
-            text-decoration: none;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px
-        }
+    .menu-item {
+      display: inline-block;
+      /* Set height */
+      height: 35px;
+      /* Remove underline */
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px
+    }
 
-        .webIMG {
-            text-decoration: none;
-        }
-        .button {
+    .webIMG {
+      text-decoration: none;
+    }
+
+    .button {
       padding: 2px 10px;
       font-size: 24px;
       text-align: center;
@@ -61,6 +66,7 @@
       opacity: 1;
       /* transition: 5.1s; */
     }
+
     .dropbtn {
       display: block;
       position: relative;
@@ -163,198 +169,242 @@
       height: 50px;
       position: relative;
     }
+
     .bottomBox {
       padding: 20px;
       background-color: purple;
     }
+
     .button:hover {
-      background-color:grey;
+      background-color: grey;
     }
+
     .menu-item:hover {
       background-color: #8f8f8f;
     }
-    </style>
+    .button:active {
+      background-color: gray;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+    .menu-item:active {
+      background-color:#4a4a4a;
+    }
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: purple;
+      background: plum;
+    }
 
-    <title>DragonVerse Game  - An official website created by NightDragonPlayz</title>
+    ::selection {
+      color: purple;
+      background: plum;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        canvas {
-            border: 1px solid #d3d3d3;
-            background-color: #590000;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
 
-        }
-    </style>
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: darkmagenta;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+  </style>
+
+  <title>DragonVerse Game - An official website created by NightDragonPlayz</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    canvas {
+      border: 1px solid #d3d3d3;
+      background-color: #590000;
+
+    }
+  </style>
 </head>
 
 <body class="bg">
-    <script>
+  <script>
 
-        var myGamePiece;
-        var myObstacles = [];
-        var myScore;
+    var myGamePiece;
+    var myObstacles = [];
+    var myScore;
 
-        function startGame() {
-            myGamePiece = new component(30, 30, "#2f00ff", 10, 120);
-            myGamePiece.gravity = 0.05;
-            myScore = new component("30px", "Consolas", "red", 280, 40, "text");
-            myGameArea.start();
+    function startGame() {
+      myGamePiece = new component(30, 30, "#2f00ff", 10, 120);
+      myGamePiece.gravity = 0.05;
+      myScore = new component("30px", "Consolas", "red", 280, 40, "text");
+      myGameArea.start();
+    }
+
+    var myGameArea = {
+      canvas: document.createElement("canvas"),
+      start: function () {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.querySelector('#game').appendChild(this.canvas);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+      },
+      clear: function () {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+    }
+
+    function component(width, height, color, x, y, type) {
+      this.type = type;
+      this.score = 0;
+      this.width = width;
+      this.height = height;
+      this.speedX = 0;
+      this.speedY = 0;
+      this.x = x;
+      this.y = y;
+      this.gravity = 0;
+      this.gravitySpeed = 0;
+      this.update = function () {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+          ctx.font = this.width + " " + this.height;
+          ctx.fillStyle = color;
+          ctx.fillText(this.text, this.x, this.y);
+        } else {
+          ctx.fillStyle = color;
+          ctx.fillRect(this.x, this.y, this.width, this.height);
         }
-
-        var myGameArea = {
-            canvas: document.createElement("canvas"),
-            start: function () {
-                this.canvas.width = 480;
-                this.canvas.height = 270;
-                this.context = this.canvas.getContext("2d");
-                document.querySelector('#game').appendChild(this.canvas);
-                this.frameNo = 0;
-                this.interval = setInterval(updateGameArea, 20);
-            },
-            clear: function () {
-                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            }
+      }
+      this.newPos = function () {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+      }
+      this.hitBottom = function () {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+          this.y = rockbottom;
+          this.gravitySpeed = 0;
         }
-
-        function component(width, height, color, x, y, type) {
-            this.type = type;
-            this.score = 0;
-            this.width = width;
-            this.height = height;
-            this.speedX = 0;
-            this.speedY = 0;
-            this.x = x;
-            this.y = y;
-            this.gravity = 0;
-            this.gravitySpeed = 0;
-            this.update = function () {
-                ctx = myGameArea.context;
-                if (this.type == "text") {
-                    ctx.font = this.width + " " + this.height;
-                    ctx.fillStyle = color;
-                    ctx.fillText(this.text, this.x, this.y);
-                } else {
-                    ctx.fillStyle = color;
-                    ctx.fillRect(this.x, this.y, this.width, this.height);
-                }
-            }
-            this.newPos = function () {
-                this.gravitySpeed += this.gravity;
-                this.x += this.speedX;
-                this.y += this.speedY + this.gravitySpeed;
-                this.hitBottom();
-            }
-            this.hitBottom = function () {
-                var rockbottom = myGameArea.canvas.height - this.height;
-                if (this.y > rockbottom) {
-                    this.y = rockbottom;
-                    this.gravitySpeed = 0;
-                }
-            }
-            this.crashWith = function (otherobj) {
-                var myleft = this.x;
-                var myright = this.x + (this.width);
-                var mytop = this.y;
-                var mybottom = this.y + (this.height);
-                var otherleft = otherobj.x;
-                var otherright = otherobj.x + (otherobj.width);
-                var othertop = otherobj.y;
-                var otherbottom = otherobj.y + (otherobj.height);
-                var crash = true;
-                if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-                    crash = false;
-                }
-                return crash;
-            }
+      }
+      this.crashWith = function (otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+          crash = false;
         }
+        return crash;
+      }
+    }
 
-        function updateGameArea() {
-            var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-            for (i = 0; i < myObstacles.length; i += 1) {
-                if (myGamePiece.crashWith(myObstacles[i])) {
-                    return;
-                }
-            }
-            myGameArea.clear();
-            myGameArea.frameNo += 1;
-            if (myGameArea.frameNo == 1 || everyinterval(150)) {
-                x = myGameArea.canvas.width;
-                minHeight = 20;
-                maxHeight = 200;
-                height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
-                minGap = 50;
-                maxGap = 200;
-                gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-                myObstacles.push(new component(10, height, "purple", x, 0));
-                myObstacles.push(new component(10, x - height - gap, "purple", x, height + gap));
-            }
-            for (i = 0; i < myObstacles.length; i += 1) {
-                myObstacles[i].x += -1;
-                myObstacles[i].update();
-            }
-            myScore.text = "Score: " + myGameArea.frameNo;
-            myScore.update();
-            myGamePiece.newPos();
-            myGamePiece.update();
+    function updateGameArea() {
+      var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+      for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+          return;
         }
+      }
+      myGameArea.clear();
+      myGameArea.frameNo += 1;
+      if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+        myObstacles.push(new component(10, height, "purple", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "purple", x, height + gap));
+      }
+      for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -1;
+        myObstacles[i].update();
+      }
+      myScore.text = "Score: " + myGameArea.frameNo;
+      myScore.update();
+      myGamePiece.newPos();
+      myGamePiece.update();
+    }
 
-        function everyinterval(n) {
-            if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
-            return false;
-        }
+    function everyinterval(n) {
+      if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
+      return false;
+    }
 
-        function accelerate(n) {
-            myGamePiece.gravity = n;
-        }
-    </script>
-      <body class="bg" style="margin-top: 10px;">
-        <table class="menu" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="image-container">
-              <a class="webIMG" href="www.dragonver.se/">
-                <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
-              </a>
-            </td>
-            <td>
-              <div class="menu-item-container">
-                <a class="menu-item" href="index.html">Home</a>
-              </div>
-            </td>
-            <td>
-              <div class="menu-item-container">
-                <a class="menu-item" href="messagecontact.htm">Message</a>
-              </div>
-            </td>
-            <td>
-              <div class="menu-item-container">
-                <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
-              </div>
-            </td>
-            <td>
-              <div class="menu-item-container active">
-                <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
-              </div>
-            </td>
-            <td>
-              <div class="dropdown">
-                <button class="dropbtn">Media</button>
-                <div class="dropdown-content">
-                  <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
-                  <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
-                  <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
-                  <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
-                </div>
-              </div>
-            </td>
-            <td class="search-cell">
-              <div class="search-container">
-                <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
-                  <input type="text" placeholder="Press Enter to Search..." name="search">
-                </form>
-              </div>
-            </td>
-          </tr>
-        </table>
+    function accelerate(n) {
+      myGamePiece.gravity = n;
+    }
+  </script>
+
+  <body class="bg" style="margin-top: 10px;">
+    <table class="menu" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="image-container">
+          <a class="webIMG" href="www.dragonver.se/">
+            <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+          </a>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="index.html">Home</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="messagecontact.htm">Message</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container">
+            <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
+          </div>
+        </td>
+        <td>
+          <div class="menu-item-container active">
+            <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
+          </div>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button class="dropbtn">Media &#9662;</button>
+            <div class="dropdown-content">
+              <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
+              <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
+              <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
+              <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
+            </div>
+          </div>
+        </td>
+        <td class="search-cell">
+          <div class="search-container">
+            <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
+              <input type="text" placeholder="Press Enter to Search..." name="search">
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
     <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
         <a class="webIMG" href="www.dragonver.se/">
             <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
@@ -369,6 +419,11 @@
             </form>
         </div>
     </div>-->
+    <br>
+    <button class="button" type="button" onclick="document.getElementById('dat').innerHTML = Date()">
+      Display Pacific Time &#9662;</button>
+
+    <p style="color:white" id="dat"></p>
 
     <div id="game"></div>
     <button class="button" onclick="startGame()">Start Game</button>
@@ -376,30 +431,31 @@
     <p style="color:white">Press Reset to Reset the Game</p>
     <p style="color:white">Use the ACCELERATE button to jump in the air</p>
 
-</div>
+    </div>
 
-<div style="height: 700px;">
+    <div style="height: 700px;">
 
-</div>
+    </div>
 
     <div class="bottomBox">
-        <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
-        <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
-          Rights Reserved</p>
-        <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
-        <p>
-        <p style="color:white; font-size: 20px;">Please Support me on YouTube.
-        <p>
-        <p style="color:white;">URL: https://www.dragonver.se/game.htm</p>
-        <form class="button" action="signin.htm">
-          <select name="channel" id="channel">
-            <option value="">NightDragonPlayz</option>
-          </select>
-          <br><br>
-          <input type="submit" value="Visit">
-        </form>
-      </div>
+      <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
+      <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz.
+        All
+        Rights Reserved</p>
+      <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
+      <p>
+      <p style="color:white; font-size: 20px;">Please Support me on YouTube.
+      <p>
+      <p style="color:white;">URL: https://www.dragonver.se/game.htm</p>
+      <form class="button" action="signin.htm">
+        <select name="channel" id="channel">
+          <option value="">NightDragonPlayz</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Visit">
+      </form>
+    </div>
 
-</body>
+  </body>
 
 </html>

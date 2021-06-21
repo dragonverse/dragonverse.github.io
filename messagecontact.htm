@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="description" content=" A fun DragonVerse website for everyone!">
   <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -67,6 +69,7 @@
       opacity: 1;
       /* transition: 5.1s; */
     }
+
     .dropbtn {
       display: block;
       position: relative;
@@ -169,71 +172,115 @@
       height: 50px;
       position: relative;
     }
+
     .bottomBox {
       padding: 20px;
       background-color: purple;
     }
+
     .button:hover {
-      background-color:grey
+      background-color: grey
     }
+
     .menu-item:hover {
       background-color: #8f8f8f;
     }
+
     .menu-item:after {
       background-color: black;
     }
-  </style>
-  <title>DragonVerse MSG  - An official website created by NightDragonPlayz</title>
+    .button:active {
+      background-color: gray;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+    .menu-item:active {
+      background-color:#4a4a4a;
+    }
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: purple;
+      background: plum;
+    }
 
-  <body class="bg" style="margin-top: 10px;">
-    <table class="menu" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="image-container">
-          <a class="webIMG" href="www.dragonver.se/">
-            <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
-          </a>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="index.html">Home</a>
+    ::selection {
+      color: purple;
+      background: plum;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: darkmagenta;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+  </style>
+  <title>DragonVerse MSG - An official website created by NightDragonPlayz</title>
+
+<body class="bg" style="margin-top: 10px;">
+  <table class="menu" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="image-container">
+        <a class="webIMG" href="www.dragonver.se/">
+          <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
+        </a>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="index.html">Home</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container active">
+          <a class="menu-item" href="messagecontact.htm">Message</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
+        </div>
+      </td>
+      <td>
+        <div class="menu-item-container">
+          <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
+        </div>
+      </td>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn">Media &#9662;</button>
+          <div class="dropdown-content">
+            <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
+            <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
+            <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
+            <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
           </div>
-        </td>
-        <td>
-          <div class="menu-item-container active">
-            <a class="menu-item" href="messagecontact.htm">Message</a>
-          </div>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="link.htm">DV&nbsp;Titans</a>
-          </div>
-        </td>
-        <td>
-          <div class="menu-item-container">
-            <a class="menu-item" href="game.htm">Game&nbsp;(beta)</a>
-          </div>
-        </td>
-        <td>
-          <div class="dropdown">
-            <button class="dropbtn">Media</button>
-            <div class="dropdown-content">
-              <a href="https://youtube.com/c/nightdragonplayz">NightDragonPlayz</a>
-              <a href="https://www.youtube.com/channel/UCiqbrp5vBM9ftSG_3vflbBw">Godzilla 2004</a>
-              <a href="https://dsc.gg/dragonverse">DragonVerse Official</a>
-              <a href="https://www.reddit.com/r/DragonVerseOfficial">DragonVerse Community</a>
-            </div>
-          </div>
-        </td>
-        <td class="search-cell">
-          <div class="search-container">
-            <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
-              <input type="text" placeholder="Press Enter to Search..." name="search">
-            </form>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
+        </div>
+      </td>
+      <td class="search-cell">
+        <div class="search-container">
+          <form class="example" action="home" style="display: block;position: absolute;right: 15px;top: 15px;">
+            <input type="text" placeholder="Press Enter to Search..." name="search">
+          </form>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!--<div style="background-color: lightgray; margin: 11px; position: relative;">
     <a class="webIMG" href="www.dragonver.se/">
       <img src="NDP.jpg" alt="NDP" width="50" height="50" style="display:inline-block; vertical-align: middle;">
       <div class="topnav" style="display:inline-block;">
@@ -245,11 +292,16 @@
           <input type="text" placeholder="Press Enter to Search..." name="search">
       </div>
   </div>-->
+  <br>
+  <button class="button" type="button" onclick="document.getElementById('dat').innerHTML = Date()">
+    Display Pacific Time &#9662;</button>
 
-    <h3 style="color:white;">Message Owner</h3>
-    <div><input type="text" placeholder="Message">
-      <button class="button" onclick="alert('Message sent')"> > </button>
-    </div>
+  <p style="color:white" id="dat"></p>
+
+  <h3 style="color:white;">Message Owner</h3>
+  <div><input type="text" placeholder="Message">
+    <button class="button" onclick="alert('Message sent')"> > </button>
+  </div>
 
   </div>
 
@@ -257,20 +309,20 @@
 
   </div>
 
-    <div class="bottomBox">
-      <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
-      <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
-        Rights Reserved</p>
-      <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
-      <p>
-      <p style="color:white; font-size: 20px;">Please Support me on YouTube.
-      <p>
-      <p style="color:white;">URL: https://www.dragonver.se/messagecontact.htm</p>
-      <form class="button" action="signin.htm">
-        <select name="channel" id="channel">
-          <option value="">NightDragonPlayz</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Visit">
-      </form>
-    </div>
+  <div class="bottomBox">
+    <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
+    <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
+      Rights Reserved</p>
+    <p style="color:white; font-size: 20px;"><strong>App used: </strong>Site made from Visual Studio Code.
+    <p>
+    <p style="color:white; font-size: 20px;">Please Support me on YouTube.
+    <p>
+    <p style="color:white;">URL: https://www.dragonver.se/messagecontact.htm</p>
+    <form class="button" action="signin.htm">
+      <select name="channel" id="channel">
+        <option value="">NightDragonPlayz</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Visit">
+    </form>
+  </div>
