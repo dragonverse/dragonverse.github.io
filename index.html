@@ -30,12 +30,16 @@
       var user = localStorage.getItem('username');
       if (user !== null) {
         // alert("Welcome back " + user);
-        document.getElementById("welcome").innerHTML = "Welcome back, " + user
+        document.getElementById("welcome").innerHTML = "Welcome back, " + user;
+        document.getElementById('logoutbtn').style.display = "inline";
+        document.getElementById('loginbtn').style.display = "none";
       } else {
         user = prompt("Please enter your site name", "");
         if (user != "" && user != null) {
           localStorage.setItem('username', user);
-          document.getElementById("welcome").innerHTML = "Logged in as, " + user
+          document.getElementById("welcome").innerHTML = "Logged in as, " + user;
+          document.getElementById('loginbtn').style.display = "none";
+          document.getElementById('logoutbtn').style.display = "inline";
         }
       }
       // var user = getCookie("username");
@@ -53,16 +57,20 @@
       localStorage.removeItem('username');
       document.getElementById("welcome").innerHTML = "Logged out.";
       document.getElementById('logoutbtn').style.display = "none";
-
+      document.getElementById('loginbtn').style.display = "inline";
     }
     function NDPFunction() {
       document.getElementById('NightDfunction').style.color = "white";
+    }
+    function login() {
+      checkCookie();
     }
   </script>
   <meta charset="UTF-8">
   <meta name="description" content=" A fun DragonVerse website for everyone!">
   <link rel="icon" href="NDP.jpg" type="image/jpg" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="image" data-react-helmet="true" property="og:image" content="NDP.jpg">
   <style>
     body,
     html {
@@ -90,12 +98,6 @@
     h1 {
       color: purple;
       width: 20px;
-    }
-
-    .titleText {
-      padding: 12px;
-      background-color: purple;
-      text-align: center;
     }
 
     .bottomBox {
@@ -268,6 +270,10 @@
       animation: glow 1s ease-in-out infinite alternate;
     }
 
+    #loginbtn {
+      display: none;
+    }
+
     @-webkit-keyframes glow {
       from {
         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -309,6 +315,25 @@
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
       background: #b30000;
+    }
+    .footerText {
+      padding: 12px;
+      background-color: rgb(51, 51, 51);
+      text-align: center;
+    }
+    .titleText {
+      padding: 12px;
+      text-align: center;
+    }
+    .autoTypers {
+      padding: 12px;
+      background-color: rgb(129, 129, 129);
+      text-align: center;
+    }
+    .aboutUs {
+      padding: 12px;
+      background-color: rgb(136, 136, 136);
+      text-align: center;
     }
   </style>
   <title>DragonVerse Home - An official website created by NightDragonPlayz</title>
@@ -432,6 +457,9 @@
   <div>
     <button class="button" id="logoutbtn" onclick="logout()">Logout</button>
   </div>
+  <div>
+    <button class="button" id="loginbtn" onclick="login()">Login</button>
+  </div>
   <br>
 
   <button class="button" type="button" onclick="document.getElementById('dat').innerHTML = Date()">
@@ -446,8 +474,10 @@
 
 
   </div>
-
-
+  <br>
+  <br>
+  <div class="autoTypers">
+  <h3 style="color:white; font-size: 20px;">Autotypers</h3>
   <p id="demo" style="color:white; font-size: 20px;"></p>
   <button class="button" onclick="typeWriter()">Type Message</button>
 
@@ -459,7 +489,8 @@
 
   <p id="demo2" style="color:white; font-size: 20px;"></p>
 
-  <hr>
+  </div>
+  <div class="aboutUs">
   <h3 style="color:white; font-size: 20px;">About Us</h3>
   <p style="color:white; font-size: 20px;"></p>
   <p id="demo" style="color:white; font-size: 20px;"></p>
@@ -473,11 +504,11 @@
 
   </div>
 
-  <div style="height: 700px;">
+  <div class="aboutUs" style="height: 700px;">
 
   </div>
 
-  <div class="bottomBox">
+  <div class="footerText">
     <h2 style="color:white; font-size: 20px;">DragonVerse</h2>
     <p style="color:white; font-size: 20px;"><strong>For any existing Copyright: </strong>Made By NightDragonPlayz. All
       Rights Reserved</p>
